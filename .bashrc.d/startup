@@ -1,0 +1,7 @@
+if [ -z ${TMUX+x} ]; then
+    tmux
+fi
+
+if [ -n "$TMUX" ]; then
+    neofetch
+fi
