@@ -6,7 +6,10 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Pull config updates
-~/Scripts/pull-configs > /dev/null
+if [ ! -f /tmp/wolf-user-configs-fetched ]; then
+    touch /tmp/wolf-user-configs-fetched
+    ~/Scripts/pull-configs > /dev/null
+fi
 
 # ----------------------------------------------
 # User specific environment and startup programs
