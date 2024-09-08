@@ -5,7 +5,8 @@
 alias la="ls -a"
 alias lla="ls -hlA"
 alias l="ls"
-alias lh=""
+alias lh="ls -d .?*"
+alias llh="ls -ld .?*"
 # NeoVim
 alias vim="nvim"
 alias vi="nvim"
