@@ -8,8 +8,6 @@
 !.bashrc
 !.bash_profile
 !.inputrc
-
 # Custom scripts
 !Scripts/
 !Scripts/pull-configs
-
