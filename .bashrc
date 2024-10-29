@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load custom shell libraries
-if [ -d ~/lib/sh ]; then
+if [ -d ~/.local/lib/sh ]; then
     for lib in ~/.local/lib/sh/*; do
         if [ -f "$lib" ]; then
             . "$lib"
@@ -42,3 +42,4 @@ case "$OS" in
         echo "ERROR: Couldn't detect OS"
     ;;
 esac
+
