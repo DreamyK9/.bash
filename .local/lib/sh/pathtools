@@ -20,4 +20,3 @@ pathappend() {
     fi
   done
 }
-
