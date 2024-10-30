@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd ~/.config/nvim
-git pull
-
-cd ~
-git pull

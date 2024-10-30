@@ -1,18 +1,24 @@
-# alias file
-# Includes common aliases for commands
+#!/bin/bash
 
 # ls aliases
-alias la="ls -a"
-alias lla="ls -hlA"
 alias l="ls"
+alias la="ls -A"
+alias ll="ls -hl"
+alias lla="ls -hlA"
 alias lh="ls -d .!(|.)"
 alias llh="ls -hld .!(|.)"
+
 # NeoVim
 alias vim="nvim"
 alias vi="nvim"
 
-# qMake
-alias qmake="qmake-qt5"
+# vim aliases
+alias vim="nvim"
+alias vi="vim"
 
-# python
+# python aliases
+alias ipy="ipython"
 alias py="python"
+
+# other
+alias qmake="qmake-qt5"
