@@ -4,8 +4,8 @@
 alias la="ls -A"
 alias ll="ls -l"
 alias lla="ls -lA"
-alias lh="ls -d .?*"
-alias llh="ls -ld .?*"
+alias lh="ls -d .!(|.)"
+alias llh="ls -hld .!(|.)"
 
 # vim aliases
 alias vim="nvim"
