@@ -5,8 +5,14 @@ alias l="ls"
 alias la="ls -A"
 alias ll="ls -hl"
 alias lla="ls -hlA"
-alias lh="ls -d .!(|.)"
-alias llh="ls -hld .!(|.)"
+
+if [[ $OS == "Windows" ]]; then
+    alias lh="ls -d .?*"
+    alias llh="ls -ld .?*"
+else
+    alias lh="ls -d .!(|.)"
+    alias llh="ls -hld .!(|.)"
+fi
 
 # NeoVim
 alias vim="nvim"
