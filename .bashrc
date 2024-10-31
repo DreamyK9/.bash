@@ -10,16 +10,6 @@ if [ -d ~/.local/lib/sh ]; then
 fi
 unset lib
 
-# Load aliases and functions from .bashrc.d
-if [ -d ~/.bashrc.d ]; then
-    for rc in ~/.bashrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
-fi
-unset rc
-
 # User specific environment
 pathappend $HOME
 pathappend ~/.local/bin
@@ -36,10 +26,21 @@ case "$OS" in
         . .osrc/mac
     ;;
     CYGWIN* | MINGW*)
+        OS="Windows"
         . .osrc/windows
     ;;
     *)
         echo "ERROR: Couldn't detect OS"
     ;;
 esac
+export OS
 
+# Load aliases and functions from .bashrc.d
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
