@@ -20,14 +20,14 @@ OS=$(uname)
 
 case "$OS" in
     Linux)
-        . .osrc/linux
+        . ~/.osrc/linux
     ;;
     Darwin)
-        . .osrc/mac
+        . ~/.osrc/mac
     ;;
     CYGWIN* | MINGW*)
         OS="Windows"
-        . .osrc/windows
+        . ~/.osrc/windows
     ;;
     *)
         echo "ERROR: Couldn't detect OS"
