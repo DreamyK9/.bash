@@ -5,7 +5,7 @@
 
 # lib imports
 . ~/.local/lib/sh/pathtools
-anaconda_path="~/AppData/Local/anaconda3"
+anaconda_path=~/AppData/Local/anaconda3
 
 if [ -d "$anaconda_path" ]; then
     # Anaconda env setup script
