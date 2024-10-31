@@ -19,3 +19,4 @@ if [ -d "$anaconda_path" ]; then
     alias pip="python -m pip"
 fi
 unset anaconda_path
+export PATH
