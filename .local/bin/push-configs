@@ -1,6 +1,6 @@
 #!/bin/bash
-. ~/lib/bash_colors
-. ~/lib/config_paths
+. ~/.local/lib/sh/bash_colors
+. ~/.local/lib/sh/config_paths
 
 # NeoVim
 echo 
