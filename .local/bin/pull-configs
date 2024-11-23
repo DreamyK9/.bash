@@ -3,17 +3,22 @@
 . ~/.local/lib/sh/config_paths
 
 # NeoVim
-echo 
-clr_bold clr_green "[NeoVim] $config_nvim"
-git -C "$config_nvim" pull
+if [ ! -z ${config_nvim+x} ]; then
+  echo
+  clr_bold clr_green "[NeoVim] $config_nvim"
+  git -C "$config_nvim" pull > /dev/stdout
+fi
 
 # Windows Terminal
-echo
-clr_bold clr_green "[Windows Terminal] $config_windows_terminal"
-git -C "$config_windows_terminal" pull
+if [ ! -z ${config_windows_terminal+x} ]; then
+  echo
+  clr_bold clr_green "[Windows Terminal] $config_windows_terminal"
+  git -C "$config_windows_terminal" pull > /dev/stdout
+fi
 
-# Git Bash
-echo
-clr_bold clr_green "[Bash] $config_bash"
-git -C "$config_bash" pull
-
+# Bash
+if [ ! -z ${config_bash+x} ]; then
+  echo
+  clr_bold clr_green "[Bash] $config_bash"
+  git -C "$config_bash" pull > /dev/stdout
+fi
