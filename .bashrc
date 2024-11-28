@@ -1,5 +1,7 @@
 #!/bin/bash
 
+OS=$(uname)
+
 # Load custom shell libraries
 if [ -d ~/.local/lib/sh ]; then
     for lib in ~/.local/lib/sh/*; do
@@ -16,8 +18,6 @@ pathappend ~/.local/bin
 export PATH
 
 # OS specific rc
-OS=$(uname)
-
 case "$OS" in
     Linux)
         . ~/.osrc/linux
