@@ -1,6 +1,9 @@
 #!/bin/bash
 
 OS=$(uname)
+if [[ $OS =~ ^(CYGWIN|MINGW)* ]]; then
+  OS="Windows"
+fi
 
 # Load custom shell libraries
 if [ -d ~/.local/lib/sh ]; then
@@ -25,8 +28,7 @@ case "$OS" in
     Darwin)
         . ~/.osrc/mac
     ;;
-    CYGWIN* | MINGW*)
-        OS="Windows"
+    Windows)
         . ~/.osrc/windows
     ;;
     *)
