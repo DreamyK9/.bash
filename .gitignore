@@ -10,6 +10,10 @@
 !.bashrc.d/
 !.bashrc.d/*
 
+# Custom completion scripts
+!bash_completion.d/
+!bash_completion.d/*
+
 # Custom scripts and libraries
 !.local/
 !.local/bin/
