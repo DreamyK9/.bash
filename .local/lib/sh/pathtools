@@ -8,15 +8,53 @@ pathprepend() {
   do
     ARG=${!i}
     if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-        PATH="$ARG${PATH:+":$PATH"}"
+      PATH="$ARG${PATH:+":$PATH"}"
     fi
   done
 }
+
 pathappend() {
   for ARG in "$@"
   do
     if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$ARG"
+      PATH="${PATH:+"$PATH:"}$ARG"
+    fi
+  done
+}
+
+forcepathprepend() {
+  for ((i=$#; i>0; i--)); 
+  do
+    ARG=${!i}
+    if [ -d "$ARG" ]; then
+      pathremove $ARG
+      PATH="$ARG${PATH:+":$PATH"}"
+    fi
+  done
+}
+
+forcepathappend() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ]; then
+      pathremove $ARG
+      PATH="${PATH:+"$PATH:"}$ARG"
+    fi
+  done
+}
+
+pathremove() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ]; then
+      while [[ ":$PATH:" == *":$ARG:"* ]];
+      do
+        PATH=":$PATH:"
+        PATH=${PATH//":"/"::"}
+        PATH=${PATH//":$ARG:"/}
+        PATH=${PATH//"::"/":"}
+        PATH=${PATH#:}; PATH=${PATH%:}
+      done
     fi
   done
 }
