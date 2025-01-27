@@ -7,8 +7,12 @@ pathprepend() {
   for ((i=$#; i>0; i--)); 
   do
     ARG=${!i}
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-      PATH="$ARG${PATH:+":$PATH"}"
+    if [ -d "$ARG" ]; then
+      if [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$ARG${PATH:+":$PATH"}"
+      fi
+    else
+      echo "WARNING: \"$ARG\" could not be added to \$PATH as the path doesn't exist"
     fi
   done
 }
@@ -16,8 +20,12 @@ pathprepend() {
 pathappend() {
   for ARG in "$@"
   do
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+    if [ -d "$ARG" ]; then
+      if [[ ":$PATH:" != *":$ARG:"* ]]; then
       PATH="${PATH:+"$PATH:"}$ARG"
+      fi
+    else
+      echo "WARNING: \"$ARG\" could not be added to \$PATH as the path doesn't exist"
     fi
   done
 }
@@ -29,6 +37,8 @@ forcepathprepend() {
     if [ -d "$ARG" ]; then
       pathremove $ARG
       PATH="$ARG${PATH:+":$PATH"}"
+    else
+      echo "WARNING: \"$ARG\" could not be added to \$PATH as the path doesn't exist"
     fi
   done
 }
@@ -39,6 +49,8 @@ forcepathappend() {
     if [ -d "$ARG" ]; then
       pathremove $ARG
       PATH="${PATH:+"$PATH:"}$ARG"
+    else
+      echo "WARNING: \"$ARG\" could not be added to \$PATH as the path doesn't exist"
     fi
   done
 }
