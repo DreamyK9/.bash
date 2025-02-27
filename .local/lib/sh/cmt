@@ -23,9 +23,9 @@ config_name[wt]="Windows Terminal"
 config_name[nvim]=NeoVim
 
 config_command() {
-  command=$1
-  name=$2
-  path=$3
+  command="$1"
+  name="$2"
+  path="$3"
 
   echo > /dev/stdout
   clr_bold clr_green "[$name] $path" > /dev/stdout
@@ -33,8 +33,8 @@ config_command() {
 }
 
 cmt() {
-  command=$1
-  config=$2
+  command="$1"
+  config="$2"
   error="cmt: Need a git command to execute.\nPossible Commands:\n  - status\n  - pull\n  - push"
 
   if [ -z $command ]; then

@@ -29,5 +29,6 @@ pyenv_path=~/.pyenv/pyenv-win
 if [ -d $pyenv_path ]; then
   forcepathprepend "$pyenv_path/shims" 
   forcepathprepend "$pyenv_path/bin"
+  forcepathprepend "$HOME/.pyenv-win-venv/bin"
 fi
 
