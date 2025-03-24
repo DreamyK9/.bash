@@ -32,3 +32,22 @@ if [ -d $pyenv_path ]; then
   forcepathprepend "$HOME/.pyenv-win-venv/bin"
 fi
 
+pyenv_wrapper() {
+  cmd=$1
+  shift
+  case $cmd in
+    "venv" | "env" | "v")
+      case $1 in
+        "activate") source "$HOME/.pyenv-win-venv/envs/$2/Scripts/activate";;
+        *) pyenv-venv $*;;
+      esac;;
+    "list") 
+      case $1 in 
+        "versions") pyenv-venv list python;;
+        *) pyenv-venv list $*;;
+      esac;;
+    *) pyenv $cmd $*;;
+  esac
+}
+
+alias pyv="pyenv_wrapper"
