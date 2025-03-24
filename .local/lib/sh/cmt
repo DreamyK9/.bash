@@ -37,12 +37,13 @@ cmt() {
   config="$2"
   error="cmt: Need a git command to execute.\nPossible Commands:\n  - status\n  - pull\n  - push"
 
-  if [ -z $command ]; then
+  if [[ -z $command ]]; then
     echo -e $error
     return 1
   fi
 
-  if [ -n $config ]; then
+  if [[ -n $config ]]; then
+    echo :: Config provided: \"$config\"
     config_command $command "${config_name[$config]}" "${config_path[$config]}"
   else
     # iterate over configs
