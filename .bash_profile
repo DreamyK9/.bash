@@ -9,7 +9,7 @@ fi
 # Pull config updates
 if [ ! -f /tmp/wolf-user-configs-fetched ]; then
     touch /tmp/wolf-user-configs-fetched
-    pull-configs > /dev/null
+    cmt pull > /dev/null
 fi
 
 # ----------------------------------------------
