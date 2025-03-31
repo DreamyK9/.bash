@@ -32,21 +32,22 @@ config_command() {
 cmt() {
   command="$1"
   config="$2"
-  error="cmt: Need a git command to execute.\nPossible Commands:\n  - status\n  - pull\n  - push"
+  help_msg="cmt: Need a git command to execute.\nPossible Commands:\n  - status\n  - pull\n  - push"
 
   if [[ -z $command ]]; then
-    echo -e $error
+    echo -e $help_msg
     return 1
   fi
 
   if [[ -n $config ]]; then
-    echo :: Config provided: \"$config\"
-    config_command $command "${config_name[$config]}" "${config_path[$config]}"
+    name_var="config_name_${config}"
+    path_var="config_path_${config}"
+    config_command $command "${!name_var}" "${!path_var}"
   else
-    # iterate over configs
-    for cfg in "${!config_name[@]}";
-    do 
-      config_command $command "${config_name[$cfg]}" "${config_path[$cfg]}"
+    for cfg in ${configs[@]}; do 
+      name_var="config_name_${cfg}"
+      path_var="config_path_${cfg}"
+      config_command $command "${!name_var}" "${!path_var}"
     done
   fi
 }
