@@ -24,3 +24,4 @@ alias py="python"
 
 # other
 alias qmake="qmake-qt5"
+alias lg="lazygit"

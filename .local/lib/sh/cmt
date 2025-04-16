@@ -1,15 +1,26 @@
 #!/bin/bash
 # Config Management Tools
-configs=("bash" "nvim" "wt")
+
+# To Add a new config:
+# 1. Add a shortname for it to the `configs` array
+# 2. Add config paths for each OS you'll use the software on
+# 3. Add a long name for display in list mode
+# Make sure the names of the variables match the shortname from 1!
+
+# ------------
+# Data Section
+configs=("bash" "nvim" "wt" "lazygit")
 
 # Config paths
 config_path_bash=~
 
 if [[ $OS == "Windows" ]]; then
-  config_path_wt=~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/
+  config_path_wt=~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState
   config_path_nvim=~/AppData/Local/nvim
+  config_path_layzgit=~/AppData/Local/lazygit
 elif [[ $OS == "Linux" ]]; then
   config_path_nvim=~/.config/nvim
+  config_path_layzgit=~/.config/lazygit
 elif [[ $OS == "Darwin" ]]; then
   : # Nothing here yet
 fi
@@ -18,7 +29,10 @@ fi
 config_name_bash=Bash
 config_name_wt="Windows Terminal"
 config_name_nvim=NeoVim
+config_name_lazygit=LazyGit
 
+# -------------
+# Logic Section
 config_command() {
   command="$1"
   name="$2"
