@@ -17,7 +17,7 @@ config_path_bash=~
 if [[ $OS == "Windows" ]]; then
   config_path_wt=~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState
   config_path_nvim=~/AppData/Local/nvim
-  config_path_layzgit=~/AppData/Local/lazygit
+  config_path_lazygit=~/AppData/Local/lazygit
 elif [[ $OS == "Linux" ]]; then
   config_path_nvim=~/.config/nvim
   config_path_layzgit=~/.config/lazygit
