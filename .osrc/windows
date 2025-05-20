@@ -50,4 +50,3 @@ pyenv_wrapper() {
   esac
 }
 
-alias pyv="pyenv_wrapper"
