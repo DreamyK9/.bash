@@ -21,7 +21,6 @@ alias vi="vim"
 # python aliases
 alias ipy="ipython"
 alias py="python"
-alias pyenv="pyenv_wrapper"
 alias pye="pyenv"
 alias venv="python -m venv"
 

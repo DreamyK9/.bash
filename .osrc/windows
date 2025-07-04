@@ -67,4 +67,4 @@ pyenv_wrapper() {
     *) pyenv $cmd $*;;
   esac
 }
-
+alias pyenv=pyenv_wrapper
