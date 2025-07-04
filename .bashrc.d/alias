@@ -7,11 +7,11 @@ alias ll="ls -hl"
 alias lla="ls -hlA"
 
 if [[ $OS == "Windows" ]]; then
-    alias lh="ls -d .?*"
-    alias llh="ls -ld .?*"
+  alias lh="ls -d .?*"
+  alias llh="ls -ld .?*"
 else
-    alias lh="ls -d .!(|.)"
-    alias llh="ls -hld .!(|.)"
+  alias lh="ls -d .!(|.)"
+  alias llh="ls -hld .!(|.)"
 fi
 
 # vim aliases
