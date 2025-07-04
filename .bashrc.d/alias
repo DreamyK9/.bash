@@ -23,6 +23,8 @@ alias ipy="ipython"
 alias py="python"
 alias pye="pyenv"
 alias venv="python -m venv"
+alias pe="pyenv"
+alias pv="pyenv venv"
 
 # other
 alias qmake="qmake-qt5"
